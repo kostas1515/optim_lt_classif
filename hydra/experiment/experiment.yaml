@@ -1,0 +1,11 @@
+# @package experiment
+name: ${now:%Y-%m-%d_%H-%M-%S}
+ra_sampler: False
+sampler: "random"
+ra_reps: 4
+decoup: False
+fn_places: False
+model_ema: False
+model_ema_steps: 30
+model_ema_decay: 0.99998
+start_epoch: 0

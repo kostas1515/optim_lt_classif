@@ -1,0 +1,8 @@
+output/*
+slurm/*
+pretrained/*
+batch_files/*
+.ipynb_checkpoints/*
+__pycache__/*
+__pycache__/
+.ipynb_checkpoints/

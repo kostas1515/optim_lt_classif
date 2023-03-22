@@ -1,0 +1,55 @@
+master_port: 29500
+dist_backend: "nccl"
+gpu: 1
+rank: 0
+minimize: False
+world_size: 1
+dist_url: "env://"
+apex:
+apex_opt_level: 'O0'
+test_only: False
+resume: False
+verbose: True
+distributed: True
+verbose_freq: 100
+use_deterministic_algorithms: False
+weights:
+batch_size: 64
+workers: 16
+pretrained: None
+sync_bn: False
+amp: False
+load_from: False
+hpopt: True
+acc: 0
+
+defaults:
+  - dataset: places_lt
+  - augmentations: places_lt
+  - optim: places_lt
+  - model: se_resnet
+  - criterion: ce
+  - experiment: experiment
+  - schedule: default
+  - hp_optim: opt1
+  - hydra/sweeper: ax
+  - hydra/launcher: joblib
+
+    
+
+
+hydra:
+  run:
+    dir: output/${experiment.name}
+  sweep:
+    dir: output/${experiment.name}
+    subdir: ./
+  launcher:
+    n_jobs: 1
+    pre_dispatch: 0
+
+
+
+
+  
+  

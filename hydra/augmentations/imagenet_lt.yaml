@@ -1,0 +1,8 @@
+# @package augmentations
+interpolation: "bilinear"
+auto_augment: imagenet
+random_erase: 0.0
+ra_magnitude: 9
+augmix_severity: 3
+mixup_alpha: 0.2
+cutmix_alpha: 0.0

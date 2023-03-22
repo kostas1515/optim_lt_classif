@@ -1,0 +1,5 @@
+# @package criterion
+name: ce
+label_smoothing: 0.0
+reduction: "mean"
+deffered: False

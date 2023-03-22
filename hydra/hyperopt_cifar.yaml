@@ -1,0 +1,55 @@
+master_port: 29502
+dist_backend: "nccl"
+gpu: 1
+rank: 0
+minimize: False
+world_size: 1
+dist_url: "env://"
+apex:
+apex_opt_level: 'O0'
+test_only: False
+resume: False
+verbose: False
+distributed: True
+verbose_freq: 100
+use_deterministic_algorithms: False
+weights:
+batch_size: 512
+workers: 16
+pretrained: None
+sync_bn: False
+amp: False
+load_from: False
+hpopt: True
+acc: 0
+
+defaults:
+  - dataset: cifar100
+  - augmentations: cifar
+  - optim: cifar
+  - model: se_resnet
+  - criterion: ce
+  - experiment: experiment
+  - schedule: default
+  - hp_optim: cifar
+  - hydra/sweeper: ax
+  - hydra/launcher: joblib
+
+    
+
+
+hydra:
+  run:
+    dir: output/${experiment.name}
+  sweep:
+    dir: output/${experiment.name}
+    subdir: ./
+  launcher:
+    n_jobs: 1
+    pre_dispatch: 0
+
+
+
+
+  
+  

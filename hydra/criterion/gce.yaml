@@ -1,0 +1,6 @@
+# @package criterion
+name: bce
+label_smoothing: 0.0
+reduction: "mean"
+use_gumbel: True
+deffered: False

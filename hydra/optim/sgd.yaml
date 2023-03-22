@@ -1,0 +1,8 @@
+# @package optim
+name: sgd
+lr: 0.2
+weight_decay: 0.0001
+momentum: 0.9
+bias_weight_decay: 
+transformer_embedding_decay: 
+norm_weight_decay: 

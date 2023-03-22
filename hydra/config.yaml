@@ -1,0 +1,39 @@
+master_port: ${now:%M%S}
+dist_backend: "nccl"
+gpu: 1
+rank: 0
+world_size: 1
+dist_url: "env://"
+apex:
+apex_opt_level: 'O0'
+test_only: False
+resume: False
+verbose: False
+distributed: True
+verbose_freq: 100
+use_deterministic_algorithms: False
+weights:
+batch_size: 64
+workers: 16
+pretrained: None
+sync_bn: False
+amp: False
+load_from: False
+hpopt: False
+
+defaults:
+  - dataset: imagenet_lt
+  - augmentations: imagenet_lt
+  - model: resnet
+  - criterion: ce
+  - optim: sgd
+  - schedule: default
+  - experiment: experiment
+  - hydra/launcher: basic 
+    
+hydra:
+  run:
+    dir: output/${experiment.name}
+  sweep:
+    dir: output/${experiment.name}
+    subdir: ./

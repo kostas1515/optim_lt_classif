@@ -1,0 +1,10 @@
+# @package dataset
+root : "../../datasets/places365_standard/"
+train_txt : "../../datasets/places365_standard/Places_LT_train.txt"
+eval_txt : "../../datasets/places365_standard/Places_LT_test.txt"
+dset_name : "places_lt"
+train_crop_size: 224
+val_crop_size: 224
+val_resize_size: 256
+cache_dataset: False
+num_classes: 365

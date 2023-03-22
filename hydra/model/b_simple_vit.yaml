@@ -1,0 +1,11 @@
+# @package model
+name: simple_vit
+size: 'base'
+num_classes: ${dataset.num_classes}
+classif_norm: "cosine"
+patch_size: 16
+dim: 768
+depth: 12
+heads: 12
+mlp_dim: 3072
+attention: "softmax"

@@ -1,0 +1,43 @@
+# @package hydra.sweeper
+_target_: hydra_plugins.hydra_ax_sweeper.ax_sweeper.AxSweeper
+
+ax_config:
+
+  # max_trials is application-specific. Tune it for your use case
+  max_trials: 50
+
+  experiment:
+    # Default to minimize, set to false to maximize
+    minimize: False
+
+  early_stop:
+    # Number of epochs without a significant improvement from
+    # the currently known best parameters
+    # An Epoch is defined as a batch of trials executed in parallel
+    max_epochs_without_improvement: 10
+
+  params:
+    augmentations.mixup_alpha:
+      type: range
+      bounds: [0.0, 1.0]
+    augmentations.cutmix_alpha:
+      type: range
+      bounds: [0.0, 1.0]
+    augmentations.random_erase:
+      type: range
+      bounds: [0.0, 0.5]
+    augmentations.auto_augment:
+      type: choice 
+      values : ['imagenet','ra','ta_wide']
+    criterion.label_smoothing:
+      type: range
+      bounds: [0.0, 0.3]
+    optim.lr:
+      type: range
+      bounds: [0.01, 0.5]
+    optim.weight_decay:
+      type: range
+      bounds: [0.00001, 0.001]
+    optim.momentum:
+      type: range
+      bounds: [0.8, 0.9]

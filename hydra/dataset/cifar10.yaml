@@ -1,0 +1,13 @@
+# @package dataset
+root : "../../datasets/"
+train_txt : ""
+eval_txt : ""
+dset_name : "cifar10"
+train_crop_size: 224
+val_crop_size: 224
+val_resize_size: 256
+num_classes: 10
+imb_type: "exp"
+imb_factor: 0.01
+rand_number: 0
+cache_dataset: False

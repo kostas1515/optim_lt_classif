@@ -1,0 +1,6 @@
+# @package model
+name: se_resnet50
+num_classes: ${dataset.num_classes}
+classif_norm: "cosine"
+use_gumbel_se: True
+use_gumbel_cb: False

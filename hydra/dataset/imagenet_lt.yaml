@@ -1,0 +1,10 @@
+# @package dataset
+root : "../../datasets/ILSVRC/Data/CLS-LOC/"
+train_txt : "../../datasets/ImageNet-LT/ImageNet_LT_train.txt"
+eval_txt : "../../datasets/ImageNet-LT/ImageNet_LT_test.txt"
+dset_name : "imagenet_lt"
+train_crop_size: 224
+val_crop_size: 224
+val_resize_size: 256
+cache_dataset: False
+num_classes: 1000

@@ -1,0 +1,7 @@
+# @package schedule
+name: cosineannealinglr
+epochs: 200
+lr_warmup_epochs: 3
+lr_min: 0.0
+lr_warmup_method: "linear"
+lr_warmup_decay: 0.01
