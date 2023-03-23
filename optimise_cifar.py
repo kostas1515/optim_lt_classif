@@ -49,6 +49,11 @@ def main(cfg: DictConfig) -> None:
     os.environ['owd'] = hydra.utils.get_original_cwd()
     cfg.master_port=str(cfg.master_port)
     mp.spawn(pipeline, nprocs=cfg.gpu, args=(cfg,), join=True)
+    with open('main.log', 'r') as f:
+        lines = f.readlines()
+        string = lines[-1].split(',')[-1].split(' ')[-1]
+        acc=float(string[:-2])
+    return acc
 
 def pipeline(rank,cfg):
     setup(rank, cfg)
@@ -126,6 +131,7 @@ def pipeline(rank,cfg):
     total_time = time.time() - start_time
     total_time_str = str(datetime.timedelta(seconds=int(total_time)))
     cfg.acc = best_acc
+    
     if rank ==0:
         log.info(cfg)
     cleanup()
